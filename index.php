@@ -18,7 +18,7 @@ function get_objects($pbx, $username, $password, $pbx_name = '', $guid = false) 
     } else {
         $curl = @file_get_contents("https://".$pbx."/PBX0/ADMIN/mod_cmd_login.xml?cmd=show&user=*&search=&search-loc=".urlencode($pbx_name)."&search-grp=&hide=&xsl=pbx_objs_right.xsl", false, $curl_context);
         if (isset($http_response_header[0]) && $http_response_header[0] == 'HTTP/1.0 401 Unauthorized') {
-            echo('Error: Wrong user/pass for Master PBX, or <a href="http://wiki.innovaphone.com/index.php?title=Reference10:Services/HTTP/Server" target="_blank">basic auth</a> not activated - ('.$username.'@'.$pbx.')');
+            echo('Error: Wrong user/pass for Master PBX, or <a href="https://wiki.innovaphone.com/index.php?title=Reference10:Services/HTTP/Server" target="_blank">basic auth</a> not activated - ('.$username.'@'.$pbx.')');
         } elseif (!$curl) {
             echo('Error: PBX not reachable - ('.$username.'@'.$pbx.')');
         }
